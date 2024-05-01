@@ -189,6 +189,7 @@ enum Lifecycle {
     /// The operations list.
     CompletionList(Vec<CqeResult>),
     /// Ignored
+    #[allow(dead_code)]
     Ignored(Box<dyn Any>),
 }
 

@@ -24,7 +24,7 @@ impl Runtime {
         F: Future,
     {
         thread_local! {
-            static NOTIFIED: Cell<bool> = Cell::new(false);
+            static NOTIFIED: Cell<bool> = const { Cell::new(false) };
         }
         let mut future = pin!(future);
         let waker = waker_fn(|| NOTIFIED.with(|notified| notified.set(true)));
